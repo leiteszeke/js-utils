@@ -1,5 +1,5 @@
 // Interfaces
-import { Color } from '../intefaces';
+import { Color } from '../interfaces';
 
 export function hexToRgb(hexValue: string): Color {
   const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;

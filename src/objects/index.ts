@@ -1,7 +1,7 @@
 // Interfaces
-import { MyObject } from '../intefaces';
+import { MyObject } from '../interfaces';
 
-export function queryFromObject(data: object): string {
+export function queryFromObject(data: Object): string {
   const result: string[] = [];
 
   Object.entries(data).map(([key, value]) => {
@@ -27,7 +27,7 @@ export function objectFromQuery(input: string): Object {
   return object;
 }
 
-function isDeepEqual(objA:MyObject, objB: MyObject): boolean {
+function isDeepEqual(objA: MyObject, objB: MyObject): boolean {
   let response = true;
 
   Object.entries(objA).map(([key, value]) => {
