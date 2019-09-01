@@ -11,7 +11,8 @@
     "build": "npm run build:types && npm run build:js",
     "build:types": "tsc --emitDeclarationOnly",
     "build:js": "babel src --out-dir build --extensions \".ts,.tsx\" --source-maps inline",
-    "lint": "tslint ./src/**/*.ts"
+    "lint": "tslint ./src/**/*.ts",
+    "test": "jest --watch"
   },
   "author": "Ezequiel Leites",
   "license": "ISC",
@@ -28,6 +29,7 @@
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-watch": "^6.0.0",
+    "jest": "^24.9.0",
     "ts-loader": "^6.0.4",
     "tslint": "^5.19.0",
     "tslint-config-airbnb": "^5.11.1",

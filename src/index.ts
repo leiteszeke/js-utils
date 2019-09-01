@@ -1,4 +1,4 @@
-import * as Numbers from './numbers';
+import Numbers from './numbers';
 import * as Objects from './objects';
 import * as Utils from './utils';
 
