@@ -6,10 +6,15 @@ export const padArray = (
   const array: Array<any> = [].concat(input as []);
 
   if (array.length < length) {
-    for (let i = 0; i < length - array.length; i += 1) {
+    const rest: number = length - array.length;
+    for (let i = 0; i < rest; i += 1) {
       array.push(defaultValue);
     }
   }
 
   return array;
+};
+
+export default {
+  padArray,
 };

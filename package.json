@@ -14,7 +14,16 @@
     "lint": "tslint ./src/**/*.ts",
     "test": "jest --watch"
   },
-  "author": "Ezequiel Leites",
+  "contributors": [
+    {
+      "name": "Ezequiel Leites",
+      "email": "ezequiel@leites.dev"
+    },
+    {
+      "name": "Nicolas Villalonga",
+      "email": "nicovillalonga90@gmail.com"
+    }
+  ],
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.5.5",
