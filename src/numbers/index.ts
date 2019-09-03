@@ -1,3 +1,5 @@
+import { padArray } from '../arrays/index';
+
 export function fixNumber(input:number, base:number = 2) :number {
   return Number.parseFloat(input.toFixed(base));
 }
@@ -5,10 +7,6 @@ export function fixNumber(input:number, base:number = 2) :number {
 export function toFixedFix(inputN: number, precision: number): number {
   const k = 10 ** precision;
   return Number.parseFloat((Math.round(inputN * k) / k).toFixed(precision));
-}
-
-export function getZeroes(n: number): string {
-  return [...Array(Math.floor(n))].map(_ => 0).join('');
 }
 
 export function numberFormat(
@@ -30,10 +28,10 @@ export function numberFormat(
 
   if (!s[1]) {
   	if (precision > 0) {
-    	s[1] = getZeroes(precision);
+    	s[1] = padArray([], precision, '0').join('');
     }
   } else if (s[1].length < precision) {
-  	s[1] += getZeroes(s[1].length < precision);
+  	s[1] += padArray([], s[1].length < precision, '0').join('');
   }
 
   return s.join(decSeparator);
