@@ -12,16 +12,15 @@ export function queryFromObject(data: Object): string {
   return result.join('&');
 }
 
+// TODO: Parametrize a 0/1 to boolean o numeric to number.
 export function objectFromQuery(input: string): Object {
   const query: string = input.replace('?', '');
   const params: string[] = query.split('&');
   const object: MyObject = {};
 
   params.forEach((value) => {
-    const splitted:string[] = value.split('=');
-    object[splitted[0]] = splitted[1] === '1' || splitted[1] === '0'
-      ? !!parseInt(splitted[1], 10)
-      : splitted[1];
+    const splitted: string[] = value.split('=');
+    object[splitted[0]] = splitted[1];
   });
 
   return object;
@@ -49,6 +48,7 @@ function isDeepEqual(objA: MyObject, objB: MyObject): boolean {
   return response;
 }
 
+// TODO: Merge items in arrays
 export function extend(...args: any): Object {
   const extended: MyObject = {};
   let deep: boolean = false;
@@ -83,3 +83,10 @@ export function extend(...args: any): Object {
 export function isEqual(objA: MyObject, objB: MyObject): boolean {
   return isDeepEqual(objA, objB) && isDeepEqual(objB, objA);
 }
+
+export default {
+  queryFromObject,
+  objectFromQuery,
+  isEqual,
+  extend,
+};
