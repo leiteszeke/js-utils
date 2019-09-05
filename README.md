@@ -17,7 +17,7 @@ JS Utils library to unify some basic functions and prevent a pretty interface to
 
 ## Documentation
 
-    ![Documentation Image](https://i.imgflip.com/39qyq2.jpg)
+    ![Documentation Image](./static/doc-thumbnail.jpg)
 
 ## Contributing
 
