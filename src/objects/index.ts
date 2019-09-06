@@ -18,7 +18,7 @@ export function objectFromQuery(input: string): Object {
   const params: string[] = query.split('&');
   const object: MyObject = {};
 
-  params.forEach((value) => {
+  params.forEach((value: string) => {
     const splitted: string[] = value.split('=');
     object[splitted[0]] = splitted[1];
   });
@@ -63,7 +63,10 @@ export function extend(...args: any): Object {
   const merge = (obj: MyObject) => {
     for (const prop in obj) {
       if (Object.prototype.hasOwnProperty.call(obj, prop)) {
-        if (deep && Object.prototype.toString.call(obj[prop]) === '[object Object]') {
+        if (
+          deep &&
+          Object.prototype.toString.call(obj[prop]) === '[object Object]'
+        ) {
           extended[prop] = extend(true, extended[prop], obj[prop]);
         } else {
           extended[prop] = obj[prop];
