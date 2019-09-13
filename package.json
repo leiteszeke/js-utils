@@ -11,7 +11,10 @@
     "build": "npm run build:types && npm run build:js",
     "build:types": "tsc --emitDeclarationOnly",
     "build:js": "babel src --out-dir build --extensions \".ts,.tsx\" --source-maps inline",
-    "lint": "tslint ./src/**/*.ts",
+    "lint": "tslint ./src/**/*.{js,jsx,ts,tsx}",
+    "lint:fix": "tslint ./src/**/*.{js,jsx,ts,tsx} --fix",
+    "prettier": "prettier --check ./src/**/*.{js,jsx,ts,tsx}",
+    "prettier:fix": "prettier --write ./src/**/*.{js,jsx,ts,tsx}",
     "test": "jest --watch"
   },
   "contributors": [
@@ -24,6 +27,11 @@
       "email": "nicovillalonga90@gmail.com"
     }
   ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.5.5",
@@ -35,10 +43,14 @@
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "eslint": "^6.2.2",
+    "eslint-config-airbnb": "^18.0.1",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-watch": "^6.0.0",
+    "husky": "^3.0.5",
     "jest": "^24.9.0",
+    "prettier": "1.18.2",
+    "pretty-quick": "^1.11.1",
     "ts-loader": "^6.0.4",
     "tslint": "^5.19.0",
     "tslint-config-airbnb": "^5.11.1",
