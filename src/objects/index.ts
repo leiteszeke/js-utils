@@ -18,7 +18,7 @@ export function objectFromQuery(input: string): Object {
   const params: string[] = query.split('&');
   const object: MyObject = {};
 
-  params.forEach((value) => {
+  params.forEach(value => {
     const splitted: string[] = value.split('=');
     object[splitted[0]] = splitted[1];
   });
@@ -63,7 +63,10 @@ export function extend(...args: any): Object {
   const merge = (obj: MyObject) => {
     for (const prop in obj) {
       if (Object.prototype.hasOwnProperty.call(obj, prop)) {
-        if (deep && Object.prototype.toString.call(obj[prop]) === '[object Object]') {
+        if (
+          deep &&
+          Object.prototype.toString.call(obj[prop]) === '[object Object]'
+        ) {
           extended[prop] = extend(true, extended[prop], obj[prop]);
         } else {
           extended[prop] = obj[prop];
@@ -84,9 +87,31 @@ export function isEqual(objA: MyObject, objB: MyObject): boolean {
   return isDeepEqual(objA, objB) && isDeepEqual(objB, objA);
 }
 
+export function hasPath(
+  object: MyObject,
+  path: String,
+  getValue: boolean = false
+): boolean | null | any {
+  const value = path.split('.').reduce((item, path) => {
+    return (item || {})[path];
+  }, object);
+
+  if (typeof value !== 'undefined') {
+    if (getValue) {
+      return value;
+    }
+
+    return true;
+  }
+
+  if (getValue) return null;
+  return false;
+}
+
 export default {
   queryFromObject,
   objectFromQuery,
   isEqual,
   extend,
+  hasPath,
 };

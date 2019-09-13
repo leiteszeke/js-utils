@@ -1,5 +1,5 @@
 export interface MyObject {
-  [key: string] : any;
+  [key: string]: any;
 }
 
 export interface Color {
