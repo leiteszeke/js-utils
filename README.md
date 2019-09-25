@@ -10,10 +10,9 @@ JS Utils library to unify some basic functions and prevent a pretty interface to
 
 ## For Development
 
-    git clone https://github.com/leiteszeke/lz-js-utils.git
-    cd lz-js-utils
+    git clone https://github.com/leiteszeke/js-utils.git
+    cd js-utils
     yarn install
-    yarn dev
 
 ## Documentation
 
