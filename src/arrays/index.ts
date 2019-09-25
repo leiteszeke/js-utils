@@ -1,7 +1,7 @@
 export const padArray = (
   input: Array<any>,
   length: number,
-  defaultValue: any = {}
+  defaultValue: any = {},
 ): Array<any> => {
   const array: Array<any> = [].concat(input as []);
 

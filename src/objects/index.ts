@@ -90,7 +90,7 @@ export function isEqual(objA: MyObject, objB: MyObject): boolean {
 export function hasPath(
   object: MyObject,
   path: String,
-  getValue: boolean = false
+  getValue: boolean = false,
 ): boolean | null | any {
   const value = path.split('.').reduce((item, path) => {
     return (item || {})[path];

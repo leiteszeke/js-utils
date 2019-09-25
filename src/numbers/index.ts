@@ -1,20 +1,19 @@
 import { padArray } from '../arrays/index';
 
-export function fixNumber(input: number, base: number = 2): number {
-  return Number.parseFloat(input.toFixed(base));
-}
+export const fixNumber = (input: number, base: number = 2): number =>
+  Number.parseFloat(input.toFixed(base));
 
-export function toFixedFix(inputN: number, precision: number): number {
+export const toFixedFix = (inputN: number, precision: number): number => {
   const k = 10 ** precision;
   return Number.parseFloat((Math.round(inputN * k) / k).toFixed(precision));
-}
+};
 
-export function numberFormat(
+export const numberFormat = (
   inputNumber: number,
   decimals: number = 2,
   thouSeparator: string = '.',
-  decSeparator: string = ','
-) {
+  decSeparator: string = ',',
+): string => {
   const value: string = `${inputNumber}`.replace(/[^0-9+\-Ee.]/g, '');
   const n = !Number.isFinite(+value) ? 0 : +value;
   const precision = !Number.isFinite(+decimals) ? 0 : Math.abs(decimals);
@@ -38,7 +37,7 @@ export function numberFormat(
   }
 
   return s.join(decSeparator);
-}
+};
 
 export default {
   fixNumber,

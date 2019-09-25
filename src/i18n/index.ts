@@ -73,7 +73,7 @@ class I18n {
       Object.entries(params).map(([key, value]) => {
         translatedValue = translatedValue.replace(
           new RegExp(`%${key}%`, 'g'),
-          value
+          value,
         );
       });
     }

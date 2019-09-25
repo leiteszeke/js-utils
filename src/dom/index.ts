@@ -3,7 +3,7 @@ import { MyObject } from '../interfaces';
 export const nodeInParent = (
   elem: MyObject,
   value: string,
-  type: string = 'class'
+  type: string = 'class',
 ): Boolean => {
   if (
     typeof elem.classList === 'undefined' ||

@@ -200,7 +200,7 @@ describe('objects module', () => {
       expect(hasPath(object, 'foo.bar', true)).toEqual(object.foo.bar);
       expect(hasPath(object2, 'item.value.numeric.string', true)).toEqual(null);
       expect(hasPath(object2, 'item.value.numeric', true)).toEqual(
-        object2.item.value.numeric
+        object2.item.value.numeric,
       );
     });
 

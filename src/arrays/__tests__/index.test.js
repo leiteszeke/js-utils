@@ -28,10 +28,10 @@ describe('arrays module', () => {
         ];
 
         expect(padArray([initialData, initialData], 4, defaultData)).toEqual(
-          expectedResult
+          expectedResult,
         );
         expect(
-          padArray([initialData, initialData], 4, defaultData)
+          padArray([initialData, initialData], 4, defaultData),
         ).toHaveLength(4);
       });
 
