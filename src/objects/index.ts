@@ -87,9 +87,31 @@ export function isEqual(objA: MyObject, objB: MyObject): boolean {
   return isDeepEqual(objA, objB) && isDeepEqual(objB, objA);
 }
 
+export function hasPath(
+  object: MyObject,
+  path: String,
+  getValue: boolean = false
+): boolean | null | any {
+  const value = path.split('.').reduce((item, path) => {
+    return (item || {})[path];
+  }, object);
+
+  if (typeof value !== 'undefined') {
+    if (getValue) {
+      return value;
+    }
+
+    return true;
+  }
+
+  if (getValue) return null;
+  return false;
+}
+
 export default {
   queryFromObject,
   objectFromQuery,
   isEqual,
   extend,
+  hasPath,
 };

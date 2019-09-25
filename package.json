@@ -32,6 +32,11 @@
       "email": "nicovillalonga90@gmail.com"
     }
   ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.5.5",

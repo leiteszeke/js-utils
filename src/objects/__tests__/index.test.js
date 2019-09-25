@@ -1,4 +1,10 @@
-import { queryFromObject, objectFromQuery, isEqual, extend } from '../index';
+import {
+  queryFromObject,
+  objectFromQuery,
+  isEqual,
+  extend,
+  hasPath,
+} from '../index';
 
 describe('objects module', () => {
   describe('test queryFromObject', () => {
@@ -114,6 +120,113 @@ describe('objects module', () => {
 
         expect(extend(baseObject, extendedData)).toEqual(finishData);
       });
+    });
+  });
+
+  describe('test hasPath', () => {
+    it('should return true for every case', () => {
+      const object = {
+        foo: {
+          bar: {
+            value: 1,
+          },
+        },
+      };
+
+      const object2 = {
+        item: {
+          value: {
+            numeric: {
+              string: null,
+            },
+          },
+        },
+      };
+
+      expect(hasPath(object, 'foo.bar.value')).toEqual(true);
+      expect(hasPath(object, 'foo.bar')).toEqual(true);
+      expect(hasPath(object, 'foo')).toEqual(true);
+      expect(hasPath(object2, 'item.value.numeric.string')).toEqual(true);
+      expect(hasPath(object2, 'item.value.numeric')).toEqual(true);
+      expect(hasPath(object2, 'item.value')).toEqual(true);
+      expect(hasPath(object2, 'item')).toEqual(true);
+    });
+
+    it('should return false for every case', () => {
+      const object = {
+        foo: {
+          bar: {
+            value: 1,
+          },
+        },
+      };
+
+      const object2 = {
+        item: {
+          value: {
+            numeric: {
+              string: null,
+            },
+          },
+        },
+      };
+
+      expect(hasPath(object, 'foo.bar.values')).toEqual(false);
+      expect(hasPath(object, 'foo.barda')).toEqual(false);
+      expect(hasPath(object2, 'item.value.numeric.value')).toEqual(false);
+      expect(hasPath(object2, 'item.value.integer')).toEqual(false);
+    });
+
+    it('should return the correct value for every case', () => {
+      const object = {
+        foo: {
+          bar: {
+            value: 1,
+          },
+        },
+      };
+
+      const object2 = {
+        item: {
+          value: {
+            numeric: {
+              string: null,
+            },
+          },
+        },
+      };
+
+      expect(hasPath(object, 'foo.bar.value', true)).toEqual(1);
+      expect(hasPath(object, 'foo.bar', true)).toEqual(object.foo.bar);
+      expect(hasPath(object2, 'item.value.numeric.string', true)).toEqual(null);
+      expect(hasPath(object2, 'item.value.numeric', true)).toEqual(
+        object2.item.value.numeric
+      );
+    });
+
+    it('should return the null for every case', () => {
+      const object = {
+        foo: {
+          bar: {
+            value: 1,
+          },
+        },
+      };
+
+      const object2 = {
+        item: {
+          value: {
+            numeric: {
+              string: null,
+            },
+          },
+        },
+      };
+
+      expect(hasPath(object, 'foo.bar.values', true)).toEqual(null);
+      expect(hasPath(object, 'foo.barsd', true)).toEqual(null);
+      expect(hasPath(object2, 'item.value.numeric.value', true)).toEqual(null);
+      expect(hasPath(object2, 'item.value.integer', true)).toEqual(null);
     });
   });
 });
