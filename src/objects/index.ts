@@ -18,7 +18,7 @@ export function objectFromQuery(input: string): Object {
   const params: string[] = query.split('&');
   const object: MyObject = {};
 
-  params.forEach(value => {
+  params.forEach((value: string) => {
     const splitted: string[] = value.split('=');
     object[splitted[0]] = splitted[1];
   });

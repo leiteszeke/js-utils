@@ -17,6 +17,11 @@
     "prettier:fix": "prettier --write ./src/**/*.{js,jsx,ts,tsx}",
     "test": "jest --watch"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "contributors": [
     {
       "name": "Ezequiel Leites",
