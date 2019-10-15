@@ -10,30 +10,30 @@ describe('utils module', () => {
     describe('convert a RGB Value to Hexadecimal', () => {
       it('should return its corresponding hexa color', () => {
         expect(rgbToHex(white.rgb[0], white.rgb[1], white.rgb[2])).toEqual(
-          white.hex
+          white.hex,
         );
         expect(rgbToHex(red.rgb[0], red.rgb[1], red.rgb[2])).toEqual(red.hex);
         expect(rgbToHex(blue.rgb[0], blue.rgb[1], blue.rgb[2])).toEqual(
-          blue.hex
+          blue.hex,
         );
         expect(
-          rgbToHex(niceGreen.rgb[0], niceGreen.rgb[1], niceGreen.rgb[2])
+          rgbToHex(niceGreen.rgb[0], niceGreen.rgb[1], niceGreen.rgb[2]),
         ).toEqual(niceGreen.hex);
 
         expect(rgbToHex(white.rgb[0], white.rgb[1], white.rgb[2])).not.toBe(
-          white.hex.toUpperCase()
+          white.hex.toUpperCase(),
         );
         expect(rgbToHex(red.rgb[0], red.rgb[1], red.rgb[2])).not.toBe(
-          red.hex.toUpperCase()
+          red.hex.toUpperCase(),
         );
         expect(rgbToHex(blue.rgb[0], blue.rgb[1], blue.rgb[2])).not.toBe(
-          blue.hex.toUpperCase()
+          blue.hex.toUpperCase(),
         );
         expect(
-          rgbToHex(niceGreen.rgb[0], niceGreen.rgb[1], niceGreen.rgb[2])
+          rgbToHex(niceGreen.rgb[0], niceGreen.rgb[1], niceGreen.rgb[2]),
         ).not.toBe(niceGreen.hex.toUpperCase());
         expect(
-          rgbToHex(niceGreen.rgb[0], niceGreen.rgb[1], niceGreen.rgb[2])
+          rgbToHex(niceGreen.rgb[0], niceGreen.rgb[1], niceGreen.rgb[2]),
         ).not.toBe(white.hex.toUpperCase());
       });
     });
@@ -66,10 +66,10 @@ describe('utils module', () => {
         expect(colorWithOpacity(white.hex)).toEqual(toString(white.rgb));
         expect(colorWithOpacity(red.hex, 0.4)).toEqual(toString(red.rgb, 0.4));
         expect(colorWithOpacity(blue.hex, 0.7)).toEqual(
-          toString(blue.rgb, 0.7)
+          toString(blue.rgb, 0.7),
         );
         expect(colorWithOpacity(niceGreen.hex, 1)).toEqual(
-          toString(niceGreen.rgb, 1)
+          toString(niceGreen.rgb, 1),
         );
 
         expect(hexToRgb(niceGreen.hex)).not.toBe({});

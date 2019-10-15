@@ -1,6 +1,6 @@
 {
   "name": "lz-js-utils",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Library with utils function to use across different JS projects.",
   "main": "build/index.js",
   "scripts": {
@@ -16,11 +16,6 @@
     "prettier": "prettier --check ./src/**/*.{js,jsx,ts,tsx}",
     "prettier:fix": "prettier --write ./src/**/*.{js,jsx,ts,tsx}",
     "test": "jest --watch"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
   },
   "contributors": [
     {
