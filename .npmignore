@@ -1,1 +1,10 @@
+.github
 src
+.babelrc
+.eslintrc
+.gitignore
+.prettierrc
+tsconfig.json
+webpack.dev.js
+webpack.prod.js
+yarn.lock

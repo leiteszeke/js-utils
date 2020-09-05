@@ -24,11 +24,7 @@ module.exports = {
     rules: [
       {
         test: /\.ts$/,
-        use: [
-          { loader: 'babel-loader' },
-          { loader: 'ts-loader' },
-          { loader: 'tslint-loader' },
-        ],
+        use: [{ loader: 'babel-loader' }, { loader: 'ts-loader' }],
         exclude: /demo/,
       },
     ],

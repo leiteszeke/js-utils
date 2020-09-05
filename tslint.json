@@ -1,8 +1,0 @@
-{
-    "extends": "tslint-config-airbnb",
-    "rules": {
-        "align": [true, "parameters", "statements"],
-        "variable-name": [true, "ban-keywords", "check-format", "allow-pascal-case"],
-        "prefer-array-literal": [true, { "allow-type-parameters": true }]
-    }
-}
