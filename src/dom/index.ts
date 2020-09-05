@@ -13,8 +13,6 @@ export const nodeInParent = (
     return false;
   }
 
-  const dataAttr = type.substring(5);
-
   switch (type) {
     case 'class':
       if (
@@ -28,12 +26,6 @@ export const nodeInParent = (
 
     case 'id':
       if (value !== elem.id) {
-        return nodeInParent(elem.parentNode, value, type);
-      }
-      break;
-
-    case /data(-\w+)/.test(type):
-      if (value !== elem.dataset[dataAttr]) {
         return nodeInParent(elem.parentNode, value, type);
       }
       break;

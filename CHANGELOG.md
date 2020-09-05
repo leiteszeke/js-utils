@@ -8,3 +8,8 @@
 ## v1.2.0
 
 - Add string converters
+
+## v1.2.1
+
+- Fix numbers
+- Fix dom

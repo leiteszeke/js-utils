@@ -1,17 +1,17 @@
-# JS Utils Library v0.0.1
+# JS Utils Library v1.2.1
 
 JS Utils library to unify some basic functions and prevent a pretty interface to some common usages.
 
 ## Installation
 
-    npm install lz-js-utils --save
+    npm install @leiteszeke/utils --save
     - or -
-    yarn add lz-js-utils
+    yarn add @leiteszeke/utils
 
 ## For Development
 
-    git clone https://github.com/leiteszeke/js-utils.git
-    cd js-utils
+    git clone https://github.com/leiteszeke/utils.git
+    cd utils
     yarn install
 
 ## Documentation

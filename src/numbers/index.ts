@@ -33,7 +33,11 @@ export const numberFormat = (
       s[1] = padArray([], precision, '0').join('');
     }
   } else if (s[1].length < precision) {
-    s[1] += padArray([], s[1].length < precision, '0').join('');
+    s[1] += padArray(
+      [],
+      s[1].length < precision ? s[1].length : precision,
+      '0',
+    ).join('');
   }
 
   return s.join(decSeparator);

@@ -1,6 +1,6 @@
 {
   "name": "@leiteszeke/utils",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Library with utils function to use across different JS and TS projects.",
   "main": "build/index.js",
   "scripts": {
