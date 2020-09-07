@@ -14,6 +14,10 @@
 - Fix numbers
 - Fix dom
 
-## v1.4.0
+## v1.4.1
 
 - Expose http module
+
+## v1.5.0
+
+- Replace fetch with axios
