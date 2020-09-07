@@ -13,3 +13,7 @@
 
 - Fix numbers
 - Fix dom
+
+## v1.3.2
+
+- Expose http module

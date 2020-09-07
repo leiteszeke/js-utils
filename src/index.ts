@@ -4,4 +4,4 @@ import * as Utils from './utils';
 import * as Hooks from './hooks';
 import * as Http from './http';
 
-export { Numbers, Objects, Utils, Hooks };
+export { Numbers, Objects, Utils, Http, Hooks };
