@@ -21,3 +21,7 @@
 ## v1.5.0
 
 - Replace fetch with axios
+
+## v1.5.1
+
+- More params in request options

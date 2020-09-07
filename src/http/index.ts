@@ -28,18 +28,19 @@ async function request<T>(
   config: RequestConfig = {},
   callbacks?: RequestCallbacks,
 ): Promise<Resource<T>> {
-  const prefix = typeof config.prefix !== 'undefined' ? config.prefix : true;
+  const baseUrl = process.env.API_URL || config.baseUrl || '';
   const randomNumber = Math.floor(Math.random() * 100);
-  const headers: HeadersInit = new Headers();
   const options: AxiosRequestConfig = { method };
+  const headers: Generic<string> = {
+    'Content-Type': 'application/json',
+    ...config.headers,
+  };
 
-  let url = `${prefix ? process.env.API_URL || '' : ''}${initialUrl}`;
-
-  headers.set('Content-Type', 'application/json');
+  let url = `${baseUrl}${initialUrl}`;
 
   if (!config.public) {
     const token = config.token || getToken();
-    headers.set('Authorization', `Bearer ${token}`);
+    headers.Authorization = `Bearer ${token}`;
   }
 
   if (params) {
@@ -185,7 +186,9 @@ export type Generic<T = any> = {
 };
 
 export type RequestConfig = {
+  baseUrl?: string;
   public?: boolean;
+  headers?: Generic<string>;
   prefix?: boolean | string;
   token?: string;
 };

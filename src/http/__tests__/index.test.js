@@ -11,7 +11,7 @@ describe('http module', () => {
 
     it('should fetch pikachu', () => {
       client
-        .get('https://pokeapi.co/api/v2/pokemon/pikachu')
+        .get('pokemon/pikachu', {}, { baseUrl: 'https://pokeapi.co/api/v2/' })
         .then((response) => {
           expect(response.id).toEqual(25);
           expect(response.name).toEqual('pikachu');
