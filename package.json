@@ -1,6 +1,6 @@
 {
   "name": "@leiteszeke/utils",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Library with utils function to use across different JS and TS projects.",
   "main": "build/index.js",
   "scripts": {
@@ -16,7 +16,7 @@
     "prettier": "prettier --check ./src/**/*.{js,jsx,ts,tsx}",
     "prettier:fix": "prettier --write ./src/**/*.{js,jsx,ts,tsx}",
     "test": "jest --watch",
-    "deploy": "yarn build:prod && yarn publish"
+    "deploy": "yarn build && yarn publish"
   },
   "contributors": [
     {
