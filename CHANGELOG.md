@@ -14,6 +14,6 @@
 - Fix numbers
 - Fix dom
 
-## v1.3.2
+## v1.4.0
 
 - Expose http module
