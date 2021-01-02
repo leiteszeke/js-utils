@@ -6,7 +6,7 @@ const SESSION_KEY =
 const getSession = (): { token: string } | null => {
   const session = localStorage.getItem(SESSION_KEY);
   if (!session) return null;
-  return JSON.parse(session) as { token: string };
+  return JSON.parse(session);
 };
 
 const getToken = (): string | null => {

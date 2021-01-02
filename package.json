@@ -1,9 +1,10 @@
 {
   "name": "@leiteszeke/utils",
-  "version": "1.5.2",
+  "version": "1.5.3",
   "description": "Library with utils function to use across different JS and TS projects.",
   "main": "build/index.js",
   "scripts": {
+    "prepublish": "yarn build",
     "build:prod": "webpack --config webpack.prod.js",
     "build:dev": "webpack -w --config webpack.dev.js",
     "type-check": "tsc --noEmit",
