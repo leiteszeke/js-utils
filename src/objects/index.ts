@@ -1,5 +1,4 @@
-// Interfaces
-import { MyObject } from '../interfaces';
+import { Generic } from '../types';
 
 export function queryFromObject(data: Object): string {
   const result: string[] = [];
@@ -16,17 +15,17 @@ export function queryFromObject(data: Object): string {
 export function objectFromQuery(input: string): Object {
   const query: string = input.replace('?', '');
   const params: string[] = query.split('&');
-  const object: MyObject = {};
+  const object: Generic = {};
 
   params.forEach((value: string) => {
-    const splitted: string[] = value.split('=');
-    object[splitted[0]] = splitted[1];
+    const [key, val]: string[] = value.split('=');
+    object[key] = val;
   });
 
   return object;
 }
 
-function isDeepEqual(objA: MyObject, objB: MyObject): boolean {
+function isDeepEqual(objA: Generic, objB: Generic): boolean {
   let response = true;
 
   Object.entries(objA).map(([key, value]) => {
@@ -50,17 +49,19 @@ function isDeepEqual(objA: MyObject, objB: MyObject): boolean {
 
 // TODO: Merge items in arrays
 export function extend(...args: any): Object {
-  const extended: MyObject = {};
+  const extended: Generic = {};
   let deep: boolean = false;
   let i: number = 0;
   const { length } = args;
 
   if (Object.prototype.toString.call(args[0]) === '[object Boolean]') {
-    deep = args[0];
+    const [value] = args;
+    deep = value;
     i += 1;
   }
 
-  const merge = (obj: MyObject) => {
+  const merge = (obj: Generic) => {
+    // eslint-disable-next-line no-restricted-syntax
     for (const prop in obj) {
       if (Object.prototype.hasOwnProperty.call(obj, prop)) {
         if (
@@ -83,18 +84,18 @@ export function extend(...args: any): Object {
   return extended;
 }
 
-export function isEqual(objA: MyObject, objB: MyObject): boolean {
+export function isEqual(objA: Generic, objB: Generic): boolean {
   return isDeepEqual(objA, objB) && isDeepEqual(objB, objA);
 }
 
 export function hasPath(
-  object: MyObject,
+  object: Generic,
   path: String,
   getValue: boolean = false,
 ): boolean | null | any {
-  const value = path.split('.').reduce((item, path) => {
-    return (item || {})[path];
-  }, object);
+  const value = path
+    .split('.')
+    .reduce((item, innerPath) => (item || {})[innerPath], object);
 
   if (typeof value !== 'undefined') {
     if (getValue) {

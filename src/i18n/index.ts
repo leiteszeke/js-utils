@@ -1,16 +1,20 @@
-// Interfaces
-import { MyObject } from '../interfaces';
+import { Generic } from '../types';
 
 class I18n {
-  langFiles: MyObject = [];
-  localeFiles: MyObject = [];
+  langFiles: Generic = [];
+
+  localeFiles: Generic = [];
+
   language: string = '';
+
   defaultLocale: string = 'es_AR';
+
   locale: string = '';
 
-  private getInstance = (): MyObject => {
+  instance = (): Generic => {
     this.locale = this.getLocale();
-    this.language = this.locale.split('_')[0];
+    const [lang] = this.locale.split('_');
+    this.language = lang;
 
     return {
       ...this.langFiles[this.language],
@@ -18,16 +22,16 @@ class I18n {
     };
   };
 
-  public setFiles = (langFiles: MyObject, localeFiles: MyObject): void => {
+  setFiles = (langFiles: Generic, localeFiles: Generic): void => {
     this.langFiles = langFiles;
     this.localeFiles = localeFiles;
   };
 
-  public setLanguage = (lang: string): void => {
+  setLanguage = (lang: string): void => {
     this.language = lang;
   };
 
-  private getLocale = (): string => {
+  getLocale = (): string => {
     if (this.language !== '') return this.language;
 
     const body = document.getElementsByTagName('body')[0];
@@ -45,13 +49,12 @@ class I18n {
     return this.defaultLocale;
   };
 
-  private getLanguage = (): string => this.language;
+  getLanguage = (): string => this.language;
 
-  public exists = (search: string): Boolean =>
-    this.translate(search).length > 0;
+  exists = (search: string): Boolean => this.translate(search).length > 0;
 
-  public translate = (search: string, params: MyObject = {}): string => {
-    let translate: MyObject = this.getInstance();
+  translate = (search: string, params: Generic = {}): string => {
+    let translate: Generic = this.instance();
     const levels = search.split('.');
     let translatedValue = '';
 
@@ -75,6 +78,8 @@ class I18n {
           new RegExp(`%${key}%`, 'g'),
           value,
         );
+
+        return true;
       });
     }
 

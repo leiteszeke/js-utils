@@ -3,6 +3,8 @@
     "allowSyntheticDefaultImports": true,
     "declaration": true,
     "esModuleInterop": true,
+    "baseUrl": ".",
+    "moduleResolution": "node",
     "module": "commonjs",
     "outDir": "build",
     "skipLibCheck": true,

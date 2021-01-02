@@ -1,7 +1,7 @@
-import { MyObject } from '../interfaces';
+import { Generic } from '../types';
 
 export const nodeInParent = (
-  elem: MyObject,
+  elem: Generic,
   value: string,
   type: string = 'class',
 ): Boolean => {
@@ -17,7 +17,7 @@ export const nodeInParent = (
     case 'class':
       if (
         typeof elem.classList === 'undefined' ||
-        false === elem.classList.contains(value)
+        elem.classList.contains(value) === false
       ) {
         if (!elem.parentNode) return false;
         return nodeInParent(elem.parentNode, value, type);
@@ -29,6 +29,9 @@ export const nodeInParent = (
         return nodeInParent(elem.parentNode, value, type);
       }
       break;
+
+    default:
+      return false;
   }
 
   return true;
