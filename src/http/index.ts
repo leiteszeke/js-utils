@@ -1,7 +1,10 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
+const SESSION_KEY =
+  process.env.SESSION_KEY ?? process.env.REACT_APP_SESSION_KEY ?? '';
+
 const getSession = (): { token: string } | null => {
-  const session = localStorage.getItem(process.env.SESSION_KEY || '');
+  const session = localStorage.getItem(SESSION_KEY);
   if (!session) return null;
   return JSON.parse(session) as { token: string };
 };
@@ -28,7 +31,11 @@ async function request<T>(
   config: RequestConfig = {},
   callbacks?: RequestCallbacks,
 ): Promise<Resource<T>> {
-  const baseUrl = process.env.API_URL || config.baseUrl || '';
+  const baseUrl =
+    config.baseUrl ??
+    process.env.API_URL ??
+    process.env.REACT_APP_API_URL ??
+    '';
   const randomNumber = Math.floor(Math.random() * 100);
   const options: AxiosRequestConfig = { method };
   const headers: Generic<string> = {

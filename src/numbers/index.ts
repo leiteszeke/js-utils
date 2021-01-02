@@ -1,4 +1,4 @@
-import { padArray } from '../arrays/index';
+import { padArray } from '../arrays';
 
 export const fixNumber = (input: number, base: number = 2): number =>
   Number.parseFloat(input.toFixed(base));

@@ -1,15 +1,10 @@
-// Interfaces
-import { Color } from '../interfaces';
+/* eslint-disable no-bitwise */
+import { Color } from '../types';
 
 export const hexToRgb = (hexValue: string): Color => {
-  const result: Array<
-    string
-  > = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hexValue) || [
-    '0',
-    '0',
-    '0',
-    '0',
-  ];
+  const result: Array<string> = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(
+    hexValue,
+  ) || ['0', '0', '0', '0'];
 
   return {
     r: parseInt(result[1], 16),
